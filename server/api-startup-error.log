@@ -1,0 +1,19 @@
+MongoServerError: E11000 duplicate key error collection: my-website.users index: email_1 dup key: { email: "edidev3@gmail.com" }
+    at InsertOneOperation.handleOk (C:\Users\edison.GDF\Pictures\my-website\server\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (C:\Users\edison.GDF\Pictures\my-website\server\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async executeOperation (C:\Users\edison.GDF\Pictures\my-website\server\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (C:\Users\edison.GDF\Pictures\my-website\server\node_modules\mongodb\lib\collection.js:154:16) {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 11000,
+    errmsg: 'E11000 duplicate key error collection: my-website.users index: email_1 dup key: { email: "edidev3@gmail.com" }',
+    keyPattern: { email: 1 },
+    keyValue: { email: 'edidev3@gmail.com' }
+  },
+  index: 0,
+  code: 11000,
+  keyPattern: { email: 1 },
+  keyValue: { email: 'edidev3@gmail.com' }
+}
