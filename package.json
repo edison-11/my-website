@@ -1,0 +1,12 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev:client",
+    "start": "npm --prefix server start",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev -- --host 127.0.0.1 --port 3001",
+    "build": "npm --prefix client run build"
+  }
+}

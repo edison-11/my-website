@@ -39,7 +39,18 @@ app.use((err, _req, res, _next) => {
 
 const port = process.env.PORT || 5000;
 connectDB()
-  .then(() => app.listen(port, () => console.log(`API listening on port ${port}`)))
+  .then(() => {
+    const server = app.listen(port, () => console.log(`API listening on port ${port}`));
+    server.on('error', (error) => {
+      if (error.code === 'EADDRINUSE') {
+        console.error(`API port ${port} is already in use. The API may already be running; check http://127.0.0.1:${port}/api/health.`);
+        process.exitCode = 1;
+        return;
+      }
+      console.error('API server failed to start:', error.message);
+      process.exitCode = 1;
+    });
+  })
   .catch((error) => {
     console.error('Database connection failed:', error.message);
     process.exit(1);
